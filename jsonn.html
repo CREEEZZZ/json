@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Person Details</title>
+    <style>
+        .di{
+            margin: auto;
+            width: 50%;
+            border: 1px ;
+            padding: 10px;
+            padding-bottom: 30%;
+            padding-left: 35%;
+            
+        }
+        .but{
+            background-color: #EA4C89;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+        }
+        body{
+            background-color: greenyellow;
+        }
+       
+    </style>
+    
+    <script>
+
+        var data = [
+            { "name": "John Doe", "age": 30, "dob": "1990-01-01" },
+            { "name": "Jane Doe", "age": 25, "dob": "1995-01-01" },
+            {"name": "Alice","age": 25,"place": "New York","dob": "1998-03-12"},
+            {
+    "name": "Bob",
+    "age": 32,
+    "place": "Los Angeles",
+    "dob": "1991-07-19"
+  },
+  {
+    "name": "Charlie",
+    "age": 41,
+    "place": "Chicago",
+    "dob": "1982-11-03"
+  },
+  {
+    "name": "David",
+    "age": 18,
+    "place": "Houston",
+    "dob": "2005-05-08"
+  },
+  {
+    "name": "Emily",
+    "age": 29,
+    "place": "San Francisco",
+    "dob": "1994-09-26"
+  },
+  {
+    "name": "Frank",
+    "age": 36,
+    "place": "Boston",
+    "dob": "1987-12-30"
+  },
+  {
+    "name": "Grace",
+    "age": 22,
+    "place": "Miami",
+    "dob": "2001-01-14"
+  },
+  {
+    "name": "Harry",
+    "age": 47,
+    "place": "Seattle",
+    "dob": "1976-06-21"
+  }
+        ];
+
+        function fetchDetails() {
+            var name = document.getElementById('name').value;
+            var person = data.find(function(person) {
+                return person.name.toLowerCase() === name.toLowerCase();
+            });
+
+            if (person) {
+                document.getElementById('result').innerHTML = 
+                    "Name: " + person.name + "<br>" +
+                    "Age: " + person.age + "<br>" +
+                    "Date of Birth: " + person.dob;
+            } else {
+                document.getElementById('result').innerHTML = "Person not found";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="dif">
+        <h1>Person Details</h1><br>
+        Enter Name: <input id="name" type="text"><br><br>
+        <button class="but" onclick="fetchDetails()">Fetch Details</button>
+    </div>
+    <div id="result"></div>
+</body>
+</html>
